@@ -44,7 +44,7 @@
         </ng-container>
 
 		<div class="d-flex justify-content-center mt-5">
-			<button class="btn btn-outline-success btn-lg" (click)="saveForm()">
+			<button class="btn btn-outline-success btn-lg" (click)="saveForm()" [disabled]="userForm.form.invalid">
 					SAVE
 			</button>
 		</div>
