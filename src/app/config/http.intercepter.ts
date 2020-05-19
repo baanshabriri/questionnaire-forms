@@ -13,7 +13,7 @@ export class Interceptor implements HttpInterceptor {
     // do not intercept request whose urls are filtered by the injected filter
     req = req.clone({
       setHeaders: {
-        authorization: localStorage.getItem('token') || '',
+        authorization: 'Bearer ' + localStorage.getItem('token') || '',
       },
     });
     return next.handle(req);
