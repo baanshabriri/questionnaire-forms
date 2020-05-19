@@ -1,16 +1,52 @@
 <div class="p-3">
   <div class="container">
-    <div>FORM 1</div>
+    <h1>{{ form.name }}</h1>
     <p>
-      Description, Description, Description, Description, Description, Description,  Description, Description, Description, Description, Description, Description,
+      Please fill the details to the best of your knowledge
     </p>
     <div class="form was-validated">
-      <div class="form-group">
-        <input class="form-control" type="text" required="true">
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Please fill out this field.</div>
-      </div>
-
+      <ng-container *ngFor="let question of questions; let i = index" [ngSwitch]="question.type">
+          <ng-container *ngSwitchCase="'SHORT'">
+            <div class="form-group">
+              <label>{{ question.question }}</label>
+              <input class="form-control" type="text" required="true" [maxLength]="20">
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+          </ng-container>
+        <ng-container *ngSwitchCase="'LONG'">
+          <div class="form-group">
+            <label>{{ question.question }}</label>
+            <input class="form-control" type="text" required="true" minlength="126">
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'SINGLE-CHOICE'">
+          <div class="form-group">
+            <label>{{ question.question }}</label>
+            <input class="form-control" type="text" required="true">
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'MULTI-CHOICE'">
+          <div class="form-group">
+            <label>{{ question.question }}</label>
+            <input class="form-control" type="text" required="true">
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'BOOLEAN'">
+          <div class="form-group">
+            <label>{{ question.question }}</label>
+            <input class="form-control" type="text" required="true">
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+        </ng-container>
+        </ng-container>
     </div>
   </div>
 </div>

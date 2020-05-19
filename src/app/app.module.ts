@@ -4,10 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {Interceptor} from "./config/http.intercepter";
-import {SharedModule} from "./@shared/shared.module";
-import {FormService} from "./@core/services/form.service";
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {Interceptor} from './config/http.intercepter';
+import {SharedModule} from './@shared/shared.module';
+import {FormService} from './@core/services/form.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,12 @@ import {FormService} from "./@core/services/form.service";
     BrowserModule,
     SharedModule.forRoot(),
     AppRoutingModule,
-    NgbModule
+    HttpClientModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbLayoutModule,
+    NbEvaIconsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true},

@@ -1,6 +1,6 @@
 import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 // import * as Raven from 'raven-js';
 
 export type IRestTransform = (response: HttpResponse<any>) => any;

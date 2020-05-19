@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { FormComponent } from './form/form.component';
 import {FormsModule} from "@angular/forms";
+import {NbSelectModule} from '@nebular/theme';
 
 
 @NgModule({
   declarations: [FormComponent],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
+        FormsModule,
+    ]
 })
 export class PagesModule { }
