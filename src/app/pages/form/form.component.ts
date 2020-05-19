@@ -40,6 +40,11 @@ export class FormComponent implements OnInit {
 		try {
 			await this.http.create(formAnswer, {__only: ['id']}, 'form_answer');
 			alert('Form saved successfully');
+            // @ts-ignore
+			if (typeof MobileApp !== 'undefined' && MobileApp !== null) {
+				// @ts-ignore
+				MobileApp.nextScreen('1');
+			}
 		} catch (e) {
 			alert('Error');
 		}
