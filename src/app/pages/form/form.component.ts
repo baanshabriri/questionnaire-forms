@@ -37,7 +37,13 @@ export class FormComponent implements OnInit {
 		this.form.questions.forEach(question => {
 			question.answer ? formAnswer.answers.push({question_id: question.id, answer: question.answer} as Answer) : null;
 		});
-		await this.http.create(formAnswer, {__only: ['id']}, 'form_answer');
+		try {
+			await this.http.create(formAnswer, {__only: ['id']}, 'form_answer');
+			alert('Form saved successfully');
+		} catch (e) {
+			alert('Error');
+		}
+
 	}
 
 

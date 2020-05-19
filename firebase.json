@@ -1,0 +1,11 @@
+{
+  "hosting": {
+	"site": "synco-form",
+    "public": "dist/questionnaire",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
