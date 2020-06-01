@@ -30,8 +30,11 @@
 				  </div>
 			  </ng-container>
 			  <ng-container *ngSwitchCase="'MULTI-CHOICE'">
-				  <input class="form-control" [name]="i.toString(10)" [(ngModel)]="question.answer" type="text"
-						 [required]="question.compulsory">
+				<select [name]="i.toString(10)"  [(ngModel)]="question.answer" shape="rectangle" status="info" [required]="question.compulsory">
+				<option  *ngFor="let c of question.choice"
+			   				[value]="c">{{c}}
+			   	</option>
+				</select>
 			  </ng-container>
 			  <ng-container *ngSwitchCase="'BOOLEAN'">
 
